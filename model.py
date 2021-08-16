@@ -1,12 +1,8 @@
-import config
-from peewee import Model, BigIntegerField, CharField, IntegerField, DateTimeField, BooleanField, PostgresqlDatabase
+import os
 
-database = PostgresqlDatabase(
-    config.database['name'],
-    user=config.database['user'],
-    password=config.database['password'],
-    host=config.database['host']
-)
+from peewee import Model, BigIntegerField, CharField, IntegerField, DateTimeField, SqliteDatabase
+
+database = SqliteDatabase(os.path.join("stars.db"))
 
 
 class BaseModel(Model):

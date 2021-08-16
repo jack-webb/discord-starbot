@@ -81,7 +81,7 @@ async def on_raw_message_delete(payload: discord.RawMessageDeleteEvent):
 
 def setup_database():
     database.connect()
-    database.create_tables([Star])
+    database.create_tables([Star], safe=True)
 
 
 def get_star_count(message: discord.Message) -> int:
